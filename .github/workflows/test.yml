@@ -21,4 +21,5 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./
         with:
-          milliseconds: 1000
+          tasty-json-output-filepath: __tests__/rest-rewrite-test-tasty-run.json
+          markdown-output-filepath: __tests__/rest-rewrite-test-tasty-run-actual.md

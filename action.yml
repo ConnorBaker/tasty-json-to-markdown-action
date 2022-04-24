@@ -1,11 +1,13 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: tasty-json-to-markdown
+description: GitHub action which takes JSON output by tasty-json and produces a markdown table with the results of the tests
+author: Connor Baker
 inputs:
-  milliseconds: # change this
+  tasty-json-output-filepath:
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+    description: 'Path to the output file from tasty-json'
+  markdown-output-filepath:
+    required: true
+    description: 'Output path for the generated markdown table'
 runs:
   using: 'node16'
   main: 'dist/index.js'

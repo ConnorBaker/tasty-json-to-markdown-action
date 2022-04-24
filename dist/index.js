@@ -35,17 +35,72 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.main = exports.makeMarkdown = exports.makeResultsRow = exports.makeResultsTable = exports.makeSummaryRow = exports.makeSummaryTable = exports.formatter = void 0;
 const core = __importStar(__nccwpck_require__(186));
-const wait_1 = __nccwpck_require__(817);
+const fs_1 = __nccwpck_require__(747);
+const promises_1 = __nccwpck_require__(225);
+exports.formatter = new Intl.NumberFormat("en-US", {
+    minimumFractionDigits: 6,
+    maximumFractionDigits: 6
+});
+function makeSummaryTable(testResults) {
+    return ("### Summary\n\n" +
+        "| Success | Time (seconds) | Threads | Test Count |\n" +
+        "| :---: | :---: | --- | --- |\n" +
+        makeSummaryRow(testResults) + "\n\n");
+}
+exports.makeSummaryTable = makeSummaryTable;
+function makeSummaryRow(testResults) {
+    return ("| " + (testResults.success ? "✅" : "❌") +
+        " | " + exports.formatter.format(testResults.time) +
+        " | " + testResults.threads +
+        " | " + testResults.testCount +
+        " |");
+}
+exports.makeSummaryRow = makeSummaryRow;
+function makeResultsTable(testResults) {
+    return ("### Results\n\n" +
+        "| Name | Success | Time (seconds) | Summary | Description | Failure Reason |\n" +
+        "| --- | :---: | :---: | --- | --- | --- |\n" +
+        testResults.results.map((value, _1, _2) => makeResultsRow(value)).join("\n") + "\n\n");
+}
+exports.makeResultsTable = makeResultsTable;
+function makeResultsRow(testResult) {
+    return ("| " + testResult.name +
+        " | " + (testResult.success ? "✅" : "❌") +
+        " | " + exports.formatter.format(testResult.time) +
+        " | " + testResult.summary.trim().replace(/\n/g, "<br />") +
+        " | " + testResult.description.trim().replace(/\n/g, "<br />") +
+        " | " + (testResult.failure ? testResult.failure.trim().replace(/\n/g, "<br />") : "N/A") +
+        " |");
+}
+exports.makeResultsRow = makeResultsRow;
+function makeMarkdown(testResults) {
+    return makeSummaryTable(testResults) + makeResultsTable(testResults);
+}
+exports.makeMarkdown = makeMarkdown;
+function main(tastyJsonOutputFilepath, markdownOutputFilepath) {
+    if (tastyJsonOutputFilepath === "") {
+        throw new Error("tasty-json-output-filepath is required");
+    }
+    if (markdownOutputFilepath === "") {
+        throw new Error("markdown-output-filepath is required");
+    }
+    if (!(0, fs_1.existsSync)(tastyJsonOutputFilepath)) {
+        throw new Error("tasty-json-output-filepath does not exist");
+    }
+    const testResults = require(tastyJsonOutputFilepath);
+    return makeMarkdown(testResults);
+}
+exports.main = main;
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const ms = core.getInput('milliseconds');
-            core.debug(`Waiting ${ms} milliseconds ...`); // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
-            core.debug(new Date().toTimeString());
-            yield (0, wait_1.wait)(parseInt(ms, 10));
-            core.debug(new Date().toTimeString());
-            core.setOutput('time', new Date().toTimeString());
+            const tastyJsonOutputFilepath = core.getInput('tasty-json-output-filepath');
+            const markdownOutputFilepath = core.getInput('markdown-output-filepath');
+            const markdownOutput = main(tastyJsonOutputFilepath, markdownOutputFilepath);
+            console.debug(markdownOutput);
+            (0, promises_1.writeFile)(markdownOutputFilepath, markdownOutput);
         }
         catch (error) {
             if (error instanceof Error)
@@ -54,37 +109,6 @@ function run() {
     });
 }
 run();
-
-
-/***/ }),
-
-/***/ 817:
-/***/ (function(__unused_webpack_module, exports) {
-
-"use strict";
-
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.wait = void 0;
-function wait(milliseconds) {
-    return __awaiter(this, void 0, void 0, function* () {
-        return new Promise(resolve => {
-            if (isNaN(milliseconds)) {
-                throw new Error('milliseconds not a number');
-            }
-            setTimeout(() => resolve('done!'), milliseconds);
-        });
-    });
-}
-exports.wait = wait;
 
 
 /***/ }),
@@ -1664,6 +1688,14 @@ module.exports = require("events");
 
 "use strict";
 module.exports = require("fs");
+
+/***/ }),
+
+/***/ 225:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("fs/promises");
 
 /***/ }),
 
