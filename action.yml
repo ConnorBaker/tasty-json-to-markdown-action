@@ -1,6 +1,9 @@
 name: tasty-json-to-markdown
 description: GitHub action which takes JSON output by tasty-json and produces a markdown table with the results of the tests
 author: Connor Baker
+branding:
+  icon: book-open
+  color: blue
 inputs:
   tasty-json-output-filepath:
     required: true
