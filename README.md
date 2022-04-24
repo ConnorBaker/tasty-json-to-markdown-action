@@ -1,105 +1,136 @@
-<p align="center">
-  <a href="https://github.com/actions/typescript-action/actions"><img alt="typescript-action status" src="https://github.com/actions/typescript-action/workflows/build-test/badge.svg"></a>
-</p>
 
-# Create a JavaScript Action using TypeScript
+# Markdown tables built from tasty-json
 
-Use this template to bootstrap the creation of a TypeScript action.:rocket:
+This action creates a markdown table from the JSON output by [tasty-json](https://github.com/larskuhtz/tasty-json).
 
-This template includes compilation support, tests, a validation workflow, publishing, and versioning guidance.  
+It takes two arguments: `tasty-json-output-filepath` (the location the JSON is stored) and `markdown-output-filepath` (where you want to store the resulting file).
 
-If you are new, there's also a simpler introduction.  See the [Hello World JavaScript Action](https://github.com/actions/hello-world-javascript-action)
+If you want to hack on it, I've provided a Nix flake.
 
-## Create an action from this template
+As an example of what it does, check out the sample input JSON `__tests__/rest-rewrite-test-tasty-run.json` and the resulting markdown table `__tests__/rest-rewrite-test-tasty-run-expected.md`. I've reproduced them below for convenience.
 
-Click the `Use this Template` and provide the new repo details for your action
+## rest-rewrite-test-tasty-run.json
 
-## Code in Main
-
-> First, you'll need to have a reasonably modern version of `node` handy. This won't work with versions older than 9, for instance.
-
-Install the dependencies  
-```bash
-$ npm install
+```json
+{"results":[{"name":"Tests.SMT Tests.ParseModel","success":true,"failure":null,"description":"","summary":"OK","time":9.999494068324566e-7},{"name":"Tests.KBO Tests.Commutativity","success":true,"failure":null,"description":"","summary":"OK","time":1.8199998885393143e-4},{"name":"Tests.KBO Tests.Associativity","success":true,"failure":null,"description":"","summary":"OK","time":3.7299998803064227e-4},{"name":"Tests.KBO Tests.Distributivity","success":true,"failure":null,"description":"","summary":"OK","time":1.5700003132224083e-4},{"name":"Tests.KBO Tests.Idempotence","success":true,"failure":null,"description":"","summary":"OK","time":1.3100000796839595e-4},{"name":"Tests.KBO Tests.Transitivity","success":true,"failure":null,"description":"","summary":"OK","time":2.0999996922910213e-4},{"name":"Tests.QuickCheck Tests.PROP_PERMITS","success":true,"failure":null,"description":"+++ OK, passed 100 tests.\n","summary":"OK","time":2.049999951850623e-3},{"name":"Tests.QuickCheck Tests.Transitivity of PO","success":true,"failure":null,"description":"+++ OK, passed 100 tests; 12973 discarded.\n","summary":"OK","time":3.7933000014163554e-2},{"name":"Tests.QuickCheck Tests.Transitivity of WQO","success":true,"failure":null,"description":"+++ OK, passed 100 tests; 841 discarded.\n","summary":"OK","time":4.811999970115721e-3},{"name":"Tests.QuickCheck Tests.Transitivity of RPO","success":true,"failure":null,"description":"+++ OK, passed 100 tests; 1457 discarded.\n","summary":"OK","time":0.12173899996560067},{"name":"Tests.QuickCheck Tests.RPO aligns with concrete","success":true,"failure":null,"description":"+++ OK, passed 5 tests; 3 discarded.\n","summary":"OK","time":3.5050000296905637e-3},{"name":"Tests.OpOrdering Tests.Parse","success":true,"failure":null,"description":"","summary":"OK","time":0.0},{"name":"Tests.OpOrdering Tests.Minimal","success":true,"failure":null,"description":"","summary":"OK","time":8.900003740563989e-5},{"name":"Tests.OC Tests.LazyOC Tests.Intersect","success":true,"failure":null,"description":"","summary":"OK","time":0.0},{"name":"Tests.OC Tests.StrictOC Tests.Permits","success":true,"failure":null,"description":"","summary":"OK","time":2.600002335384488e-5},{"name":"Tests.OC Tests.StrictOC Tests.Permits2","success":true,"failure":null,"description":"","summary":"OK","time":2.9999995604157448e-5},{"name":"Tests.OC Tests.RPO Tests.RPO1","success":true,"failure":null,"description":"","summary":"OK","time":5.400000372901559e-5},{"name":"Tests.OC Tests.RPO Tests.RPO2","success":true,"failure":null,"description":"","summary":"OK","time":5.519999540410936e-4},{"name":"Tests.OC Tests.RPO Tests.RPO3","success":true,"failure":null,"description":"","summary":"OK","time":4.5532000018283725e-2},{"name":"Tests.OC Tests.RPO Tests.RPO4","success":true,"failure":null,"description":"","summary":"OK","time":5.800003418698907e-5},{"name":"Tests.OC Tests.RPO Tests.RPO5","success":true,"failure":null,"description":"","summary":"OK","time":5.150000040885061e-3},{"name":"Tests.OC Tests.RPO Tests.RPO6","success":true,"failure":null,"description":"","summary":"OK","time":1.9109999993816018e-3},{"name":"Tests.OC Tests.RPO Tests.RPOOrient","success":true,"failure":null,"description":"","summary":"OK","time":5.117999971844256e-3},{"name":"Tests.OC Tests.RPO Tests.SynGTE","success":true,"failure":null,"description":"","summary":"OK","time":3.6999990697950125e-5},{"name":"Tests.OC Tests.RPO Tests.SynGTE2","success":true,"failure":null,"description":"","summary":"OK","time":5.859999801032245e-4},{"name":"Tests.OC Tests.Ordering Tests.Simple1","success":true,"failure":null,"description":"","summary":"OK","time":0.0},{"name":"Tests.OC Tests.Ordering Tests.Simple2","success":true,"failure":null,"description":"","summary":"OK","time":5.900004180148244e-5},{"name":"Tests.OC Tests.Ordering Tests.Simple3","success":true,"failure":null,"description":"","summary":"OK","time":6.000004941597581e-5},{"name":"Tests.OC Tests.Ordering Tests.Subterm","success":true,"failure":null,"description":"","summary":"OK","time":1.4999997802078724e-5},{"name":"Tests.OC Tests.Ordering Tests.Intersect","success":true,"failure":null,"description":"","summary":"OK","time":4.39999857917428e-5},{"name":"Tests.MultisetOrder Tests.Constraints","success":true,"failure":null,"description":"","summary":"OK","time":6.400002166628838e-5},{"name":"Tests.MultisetOrder Tests.Unsat","success":true,"failure":null,"description":"","summary":"OK","time":5.8999983593821526e-5},{"name":"Tests.WQO Tests.NotStrongerThan","success":true,"failure":null,"description":"","summary":"OK","time":4.899996565654874e-5},{"name":"Tests.WQO Tests.RejectInvalid","success":false,"failure":"TestFailed","description":"test/tasty/WQOTests.hs:22:\nexpected: False\n but got: True","summary":"FAIL","time":1.9000028260052204e-5},{"name":"Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Contains","success":true,"failure":null,"description":"","summary":"OK","time":1.00000761449337e-6},{"name":"Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Diverge","success":true,"failure":null,"description":"","summary":"OK","time":1.2499996228143573e-4},{"name":"Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Diverge3","success":true,"failure":null,"description":"","summary":"OK","time":1.170000177808106e-4},{"name":"Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Eval1","success":true,"failure":null,"description":"","summary":"OK","time":0.0},{"name":"Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Eval2","success":true,"failure":null,"description":"","summary":"OK","time":3.365600004326552e-2},{"name":"Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Subst1","success":true,"failure":null,"description":"","summary":"OK","time":1.00000761449337e-6},{"name":"Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.ArithTerm","success":true,"failure":null,"description":"","summary":"OK","time":3.000000142492354e-4},{"name":"Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.ArithTerm2","success":true,"failure":null,"description":"","summary":"OK","time":5.000000237487257e-4},{"name":"Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith0","success":true,"failure":null,"description":"","summary":"OK","time":1.338200003374368e-2},{"name":"Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith1","success":true,"failure":null,"description":"","summary":"OK","time":2.187000005505979e-3},{"name":"Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith2","success":true,"failure":null,"description":"","summary":"OK","time":1.4999997802078724e-4},{"name":"Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith3","success":true,"failure":null,"description":"","summary":"OK","time":1.509999856352806e-4},{"name":"Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith4","success":true,"failure":null,"description":"","summary":"OK","time":3.58700001379475e-3},{"name":"Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith4.1","success":true,"failure":null,"description":"","summary":"OK","time":3.30400001257658e-3},{"name":"Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith5","success":true,"failure":null,"description":"","summary":"OK","time":1.3100000796839595e-4},{"name":"Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith5.1","success":true,"failure":null,"description":"","summary":"OK","time":1.0449999826960266e-3},{"name":"Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith5.2","success":true,"failure":null,"description":"","summary":"OK","time":5.99899998633191e-3},{"name":"Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith6","success":true,"failure":null,"description":"","summary":"OK","time":3.3007999998517334e-2},{"name":"Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith7","success":true,"failure":null,"description":"","summary":"OK","time":3.913699998520315e-2},{"name":"Tests.Implementation Tests.KBO Implementation Tests.Completion Tests.CompleteDiverges","success":true,"failure":null,"description":"","summary":"OK","time":1.7300003673881292e-4},{"name":"Tests.Implementation Tests.KBO Implementation Tests.Completion Tests.Complete1","success":true,"failure":null,"description":"","summary":"OK","time":1.990000018849969e-4},{"name":"Tests.Implementation Tests.KBO Implementation Tests.Completion Tests.EvalComplete2","success":true,"failure":null,"description":"","summary":"OK","time":8.299999171867967e-5},{"name":"Tests.Implementation Tests.KBO Implementation Tests.Completion Tests.Complete2","success":true,"failure":null,"description":"","summary":"OK","time":5.760000203736126e-4},{"name":"Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Contains","success":true,"failure":null,"description":"","summary":"OK","time":1.799996243789792e-5},{"name":"Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Diverge","success":true,"failure":null,"description":"","summary":"OK","time":7.100001676008105e-5},{"name":"Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Diverge3","success":true,"failure":null,"description":"","summary":"OK","time":1.610000035725534e-4},{"name":"Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Eval1","success":true,"failure":null,"description":"","summary":"OK","time":5.70000265724957e-5},{"name":"Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Eval2","success":true,"failure":null,"description":"","summary":"OK","time":3.364999999757856e-2},{"name":"Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Subst1","success":true,"failure":null,"description":"","summary":"OK","time":7.700000423938036e-5},{"name":"Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.ArithTerm","success":true,"failure":null,"description":"","summary":"OK","time":2.3500004317611456e-4},{"name":"Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.ArithTerm2","success":true,"failure":null,"description":"","summary":"OK","time":4.1199999395757914e-4},{"name":"Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith0","success":true,"failure":null,"description":"","summary":"OK","time":1.654199999757111e-2},{"name":"Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith1","success":true,"failure":null,"description":"","summary":"OK","time":2.8180000372231007e-3},{"name":"Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith2","success":true,"failure":null,"description":"","summary":"OK","time":1.2600002810359e-4},{"name":"Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith3","success":true,"failure":null,"description":"","summary":"OK","time":7.700000423938036e-5},{"name":"Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith4","success":true,"failure":null,"description":"","summary":"OK","time":4.430999979376793e-3},{"name":"Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith4.1","success":true,"failure":null,"description":"","summary":"OK","time":3.6309999995864928e-3},{"name":"Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith5","success":true,"failure":null,"description":"","summary":"OK","time":8.399999933317304e-5},{"name":"Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith5.1","success":true,"failure":null,"description":"","summary":"OK","time":9.339999523945153e-4},{"name":"Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith5.2","success":true,"failure":null,"description":"","summary":"OK","time":7.260999991558492e-3},{"name":"Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith6","success":true,"failure":null,"description":"","summary":"OK","time":6.551699998090044e-2},{"name":"Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith7","success":true,"failure":null,"description":"","summary":"OK","time":4.473900003358722e-2},{"name":"Tests.Implementation Tests.RPO Implementation Tests.Completion Tests.CompleteDiverges","success":true,"failure":null,"description":"","summary":"OK","time":2.779999631457031e-4},{"name":"Tests.Implementation Tests.RPO Implementation Tests.Completion Tests.Complete1","success":true,"failure":null,"description":"","summary":"OK","time":2.429999876767397e-4},{"name":"Tests.Implementation Tests.RPO Implementation Tests.Completion Tests.EvalComplete2","success":true,"failure":null,"description":"","summary":"OK","time":9.999494068324566e-7},{"name":"Tests.Implementation Tests.RPO Implementation Tests.Completion Tests.Complete2","success":true,"failure":null,"description":"","summary":"OK","time":8.900000248104334e-4},{"name":"Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Contains","success":true,"failure":null,"description":"","summary":"OK","time":3.200001083314419e-5},{"name":"Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Diverge","success":true,"failure":null,"description":"","summary":"OK","time":3.100000321865082e-5},{"name":"Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Diverge3","success":true,"failure":null,"description":"","summary":"OK","time":1.509999856352806e-4},{"name":"Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Eval1","success":true,"failure":null,"description":"","summary":"OK","time":1.00000761449337e-6},{"name":"Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Eval2","success":true,"failure":null,"description":"","summary":"OK","time":3.00002284348011e-6},{"name":"Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Subst1","success":true,"failure":null,"description":"","summary":"OK","time":6.200000643730164e-5},{"name":"Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.ArithTerm","success":true,"failure":null,"description":"","summary":"OK","time":3.629999700933695e-4},{"name":"Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.ArithTerm2","success":true,"failure":null,"description":"","summary":"OK","time":4.0499999886378646e-4},{"name":"Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Arith0","success":true,"failure":null,"description":"","summary":"OK","time":2.172299998346716e-2},{"name":"Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Arith1","success":true,"failure":null,"description":"","summary":"OK","time":2.3748000035993755e-2},{"name":"Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Arith2","success":true,"failure":null,"description":"","summary":"OK","time":3.75000003259629e-4},{"name":"Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Arith3","success":true,"failure":null,"description":"","summary":"OK","time":1.3699999544769526e-4},{"name":"Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Arith5","success":true,"failure":null,"description":"","summary":"OK","time":1.5999999595806003e-4},{"name":"Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Arith5.1","success":true,"failure":null,"description":"","summary":"OK","time":5.290000117383897e-4},{"name":"Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Arith5.2","success":true,"failure":null,"description":"","summary":"OK","time":2.4160000029951334e-3},{"name":"Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Arith7","success":true,"failure":null,"description":"","summary":"OK","time":0.1309940000064671},{"name":"Tests.Implementation Tests.LPO Implementation Tests.Completion Tests.CompleteDiverges","success":true,"failure":null,"description":"","summary":"OK","time":1.580000389367342e-4},{"name":"Tests.Implementation Tests.LPO Implementation Tests.Completion Tests.Complete1","success":true,"failure":null,"description":"","summary":"OK","time":3.0800001695752144e-4},{"name":"Tests.Implementation Tests.LPO Implementation Tests.Completion Tests.EvalComplete2","success":true,"failure":null,"description":"","summary":"OK","time":2.300000051036477e-5},{"name":"Tests.Implementation Tests.LPO Implementation Tests.Completion Tests.Complete2","success":true,"failure":null,"description":"","summary":"OK","time":1.1999999987892807e-3},{"name":"Tests.Golden Tests.fig4.TXT rewrites file generation","success":true,"failure":null,"description":"","summary":"OK","time":2.0599999697878957e-4},{"name":"Tests.Golden Tests.fig4.DOT file generation","success":true,"failure":null,"description":"","summary":"OK","time":0.0},{"name":"Tests.Golden Tests.fig8-noopt.TXT rewrites file generation","success":true,"failure":null,"description":"","summary":"OK","time":0.0},{"name":"Tests.Golden Tests.fig8-noopt.DOT file generation","success":true,"failure":null,"description":"","summary":"OK","time":8.360000210814178e-4},{"name":"Tests.Golden Tests.fig8-opt.TXT rewrites file generation","success":true,"failure":null,"description":"","summary":"OK","time":1.1500000255182385e-4},{"name":"Tests.Golden Tests.fig8-opt.DOT file generation","success":true,"failure":null,"description":"","summary":"OK","time":1.4700001338496804e-4}],"time":0.7829780000029132,"success":false,"threads":1,"testCount":106}
 ```
 
-Build the typescript and package it for distribution
-```bash
-$ npm run build && npm run package
-```
+## rest-rewrite-test-tasty-run-expected.md
 
-Run the tests :heavy_check_mark:  
-```bash
-$ npm test
+### Summary
 
- PASS  ./index.test.js
-  ✓ throws invalid number (3ms)
-  ✓ wait 500 ms (504ms)
-  ✓ test runs (95ms)
+| Success | Time (seconds) | Threads | Test Count |
+| :---: | :---: | --- | --- |
+| ❌ | 0.782978 | 1 | 106 |
 
-...
-```
+### Results
 
-## Change action.yml
+| Name | Success | Time (seconds) | Summary | Description | Failure Reason |
+| --- | :---: | :---: | --- | --- | --- |
+| Tests.SMT Tests.ParseModel | ✅ | 0.000001 | OK |  | N/A |
+| Tests.KBO Tests.Commutativity | ✅ | 0.000182 | OK |  | N/A |
+| Tests.KBO Tests.Associativity | ✅ | 0.000373 | OK |  | N/A |
+| Tests.KBO Tests.Distributivity | ✅ | 0.000157 | OK |  | N/A |
+| Tests.KBO Tests.Idempotence | ✅ | 0.000131 | OK |  | N/A |
+| Tests.KBO Tests.Transitivity | ✅ | 0.000210 | OK |  | N/A |
+| Tests.QuickCheck Tests.PROP_PERMITS | ✅ | 0.002050 | OK | +++ OK, passed 100 tests. | N/A |
+| Tests.QuickCheck Tests.Transitivity of PO | ✅ | 0.037933 | OK | +++ OK, passed 100 tests; 12973 discarded. | N/A |
+| Tests.QuickCheck Tests.Transitivity of WQO | ✅ | 0.004812 | OK | +++ OK, passed 100 tests; 841 discarded. | N/A |
+| Tests.QuickCheck Tests.Transitivity of RPO | ✅ | 0.121739 | OK | +++ OK, passed 100 tests; 1457 discarded. | N/A |
+| Tests.QuickCheck Tests.RPO aligns with concrete | ✅ | 0.003505 | OK | +++ OK, passed 5 tests; 3 discarded. | N/A |
+| Tests.OpOrdering Tests.Parse | ✅ | 0.000000 | OK |  | N/A |
+| Tests.OpOrdering Tests.Minimal | ✅ | 0.000089 | OK |  | N/A |
+| Tests.OC Tests.LazyOC Tests.Intersect | ✅ | 0.000000 | OK |  | N/A |
+| Tests.OC Tests.StrictOC Tests.Permits | ✅ | 0.000026 | OK |  | N/A |
+| Tests.OC Tests.StrictOC Tests.Permits2 | ✅ | 0.000030 | OK |  | N/A |
+| Tests.OC Tests.RPO Tests.RPO1 | ✅ | 0.000054 | OK |  | N/A |
+| Tests.OC Tests.RPO Tests.RPO2 | ✅ | 0.000552 | OK |  | N/A |
+| Tests.OC Tests.RPO Tests.RPO3 | ✅ | 0.045532 | OK |  | N/A |
+| Tests.OC Tests.RPO Tests.RPO4 | ✅ | 0.000058 | OK |  | N/A |
+| Tests.OC Tests.RPO Tests.RPO5 | ✅ | 0.005150 | OK |  | N/A |
+| Tests.OC Tests.RPO Tests.RPO6 | ✅ | 0.001911 | OK |  | N/A |
+| Tests.OC Tests.RPO Tests.RPOOrient | ✅ | 0.005118 | OK |  | N/A |
+| Tests.OC Tests.RPO Tests.SynGTE | ✅ | 0.000037 | OK |  | N/A |
+| Tests.OC Tests.RPO Tests.SynGTE2 | ✅ | 0.000586 | OK |  | N/A |
+| Tests.OC Tests.Ordering Tests.Simple1 | ✅ | 0.000000 | OK |  | N/A |
+| Tests.OC Tests.Ordering Tests.Simple2 | ✅ | 0.000059 | OK |  | N/A |
+| Tests.OC Tests.Ordering Tests.Simple3 | ✅ | 0.000060 | OK |  | N/A |
+| Tests.OC Tests.Ordering Tests.Subterm | ✅ | 0.000015 | OK |  | N/A |
+| Tests.OC Tests.Ordering Tests.Intersect | ✅ | 0.000044 | OK |  | N/A |
+| Tests.MultisetOrder Tests.Constraints | ✅ | 0.000064 | OK |  | N/A |
+| Tests.MultisetOrder Tests.Unsat | ✅ | 0.000059 | OK |  | N/A |
+| Tests.WQO Tests.NotStrongerThan | ✅ | 0.000049 | OK |  | N/A |
+| Tests.WQO Tests.RejectInvalid | ❌ | 0.000019 | FAIL | test/tasty/WQOTests.hs:22:<br />expected: False<br /> but got: True | TestFailed |
+| Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Contains | ✅ | 0.000001 | OK |  | N/A |
+| Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Diverge | ✅ | 0.000125 | OK |  | N/A |
+| Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Diverge3 | ✅ | 0.000117 | OK |  | N/A |
+| Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Eval1 | ✅ | 0.000000 | OK |  | N/A |
+| Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Eval2 | ✅ | 0.033656 | OK |  | N/A |
+| Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Subst1 | ✅ | 0.000001 | OK |  | N/A |
+| Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.ArithTerm | ✅ | 0.000300 | OK |  | N/A |
+| Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.ArithTerm2 | ✅ | 0.000500 | OK |  | N/A |
+| Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith0 | ✅ | 0.013382 | OK |  | N/A |
+| Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith1 | ✅ | 0.002187 | OK |  | N/A |
+| Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith2 | ✅ | 0.000150 | OK |  | N/A |
+| Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith3 | ✅ | 0.000151 | OK |  | N/A |
+| Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith4 | ✅ | 0.003587 | OK |  | N/A |
+| Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith4.1 | ✅ | 0.003304 | OK |  | N/A |
+| Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith5 | ✅ | 0.000131 | OK |  | N/A |
+| Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith5.1 | ✅ | 0.001045 | OK |  | N/A |
+| Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith5.2 | ✅ | 0.005999 | OK |  | N/A |
+| Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith6 | ✅ | 0.033008 | OK |  | N/A |
+| Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith7 | ✅ | 0.039137 | OK |  | N/A |
+| Tests.Implementation Tests.KBO Implementation Tests.Completion Tests.CompleteDiverges | ✅ | 0.000173 | OK |  | N/A |
+| Tests.Implementation Tests.KBO Implementation Tests.Completion Tests.Complete1 | ✅ | 0.000199 | OK |  | N/A |
+| Tests.Implementation Tests.KBO Implementation Tests.Completion Tests.EvalComplete2 | ✅ | 0.000083 | OK |  | N/A |
+| Tests.Implementation Tests.KBO Implementation Tests.Completion Tests.Complete2 | ✅ | 0.000576 | OK |  | N/A |
+| Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Contains | ✅ | 0.000018 | OK |  | N/A |
+| Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Diverge | ✅ | 0.000071 | OK |  | N/A |
+| Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Diverge3 | ✅ | 0.000161 | OK |  | N/A |
+| Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Eval1 | ✅ | 0.000057 | OK |  | N/A |
+| Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Eval2 | ✅ | 0.033650 | OK |  | N/A |
+| Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Subst1 | ✅ | 0.000077 | OK |  | N/A |
+| Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.ArithTerm | ✅ | 0.000235 | OK |  | N/A |
+| Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.ArithTerm2 | ✅ | 0.000412 | OK |  | N/A |
+| Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith0 | ✅ | 0.016542 | OK |  | N/A |
+| Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith1 | ✅ | 0.002818 | OK |  | N/A |
+| Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith2 | ✅ | 0.000126 | OK |  | N/A |
+| Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith3 | ✅ | 0.000077 | OK |  | N/A |
+| Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith4 | ✅ | 0.004431 | OK |  | N/A |
+| Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith4.1 | ✅ | 0.003631 | OK |  | N/A |
+| Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith5 | ✅ | 0.000084 | OK |  | N/A |
+| Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith5.1 | ✅ | 0.000934 | OK |  | N/A |
+| Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith5.2 | ✅ | 0.007261 | OK |  | N/A |
+| Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith6 | ✅ | 0.065517 | OK |  | N/A |
+| Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith7 | ✅ | 0.044739 | OK |  | N/A |
+| Tests.Implementation Tests.RPO Implementation Tests.Completion Tests.CompleteDiverges | ✅ | 0.000278 | OK |  | N/A |
+| Tests.Implementation Tests.RPO Implementation Tests.Completion Tests.Complete1 | ✅ | 0.000243 | OK |  | N/A |
+| Tests.Implementation Tests.RPO Implementation Tests.Completion Tests.EvalComplete2 | ✅ | 0.000001 | OK |  | N/A |
+| Tests.Implementation Tests.RPO Implementation Tests.Completion Tests.Complete2 | ✅ | 0.000890 | OK |  | N/A |
+| Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Contains | ✅ | 0.000032 | OK |  | N/A |
+| Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Diverge | ✅ | 0.000031 | OK |  | N/A |
+| Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Diverge3 | ✅ | 0.000151 | OK |  | N/A |
+| Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Eval1 | ✅ | 0.000001 | OK |  | N/A |
+| Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Eval2 | ✅ | 0.000003 | OK |  | N/A |
+| Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Subst1 | ✅ | 0.000062 | OK |  | N/A |
+| Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.ArithTerm | ✅ | 0.000363 | OK |  | N/A |
+| Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.ArithTerm2 | ✅ | 0.000405 | OK |  | N/A |
+| Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Arith0 | ✅ | 0.021723 | OK |  | N/A |
+| Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Arith1 | ✅ | 0.023748 | OK |  | N/A |
+| Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Arith2 | ✅ | 0.000375 | OK |  | N/A |
+| Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Arith3 | ✅ | 0.000137 | OK |  | N/A |
+| Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Arith5 | ✅ | 0.000160 | OK |  | N/A |
+| Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Arith5.1 | ✅ | 0.000529 | OK |  | N/A |
+| Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Arith5.2 | ✅ | 0.002416 | OK |  | N/A |
+| Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Arith7 | ✅ | 0.130994 | OK |  | N/A |
+| Tests.Implementation Tests.LPO Implementation Tests.Completion Tests.CompleteDiverges | ✅ | 0.000158 | OK |  | N/A |
+| Tests.Implementation Tests.LPO Implementation Tests.Completion Tests.Complete1 | ✅ | 0.000308 | OK |  | N/A |
+| Tests.Implementation Tests.LPO Implementation Tests.Completion Tests.EvalComplete2 | ✅ | 0.000023 | OK |  | N/A |
+| Tests.Implementation Tests.LPO Implementation Tests.Completion Tests.Complete2 | ✅ | 0.001200 | OK |  | N/A |
+| Tests.Golden Tests.fig4.TXT rewrites file generation | ✅ | 0.000206 | OK |  | N/A |
+| Tests.Golden Tests.fig4.DOT file generation | ✅ | 0.000000 | OK |  | N/A |
+| Tests.Golden Tests.fig8-noopt.TXT rewrites file generation | ✅ | 0.000000 | OK |  | N/A |
+| Tests.Golden Tests.fig8-noopt.DOT file generation | ✅ | 0.000836 | OK |  | N/A |
+| Tests.Golden Tests.fig8-opt.TXT rewrites file generation | ✅ | 0.000115 | OK |  | N/A |
+| Tests.Golden Tests.fig8-opt.DOT file generation | ✅ | 0.000147 | OK |  | N/A |
 
-The action.yml defines the inputs and output for your action.
-
-Update the action.yml with your name, description, inputs and outputs for your action.
-
-See the [documentation](https://help.github.com/en/articles/metadata-syntax-for-github-actions)
-
-## Change the Code
-
-Most toolkit and CI/CD operations involve async operations so the action is run in an async function.
-
-```javascript
-import * as core from '@actions/core';
-...
-
-async function run() {
-  try { 
-      ...
-  } 
-  catch (error) {
-    core.setFailed(error.message);
-  }
-}
-
-run()
-```
-
-See the [toolkit documentation](https://github.com/actions/toolkit/blob/master/README.md#packages) for the various packages.
-
-## Publish to a distribution branch
-
-Actions are run from GitHub repos so we will checkin the packed dist folder. 
-
-Then run [ncc](https://github.com/zeit/ncc) and push the results:
-```bash
-$ npm run package
-$ git add dist
-$ git commit -a -m "prod dependencies"
-$ git push origin releases/v1
-```
-
-Note: We recommend using the `--license` option for ncc, which will create a license file for all of the production node modules used in your project.
-
-Your action is now published! :rocket: 
-
-See the [versioning documentation](https://github.com/actions/toolkit/blob/master/docs/action-versioning.md)
-
-## Validate
-
-You can now validate the action by referencing `./` in a workflow in your repo (see [test.yml](.github/workflows/test.yml))
-
-```yaml
-uses: ./
-with:
-  milliseconds: 1000
-```
-
-See the [actions tab](https://github.com/actions/typescript-action/actions) for runs of this action! :rocket:
-
-## Usage:
-
-After testing you can [create a v1 tag](https://github.com/actions/toolkit/blob/master/docs/action-versioning.md) to reference the stable and latest V1 action
