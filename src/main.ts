@@ -19,53 +19,69 @@ export type TestResults = {
   testCount: number
 }
 
-export const formatter = new Intl.NumberFormat('en-US', {
+export const timeFormatter = new Intl.NumberFormat('en-US', {
   minimumFractionDigits: 6,
   maximumFractionDigits: 6
 })
 
-export function makeSummaryTable(testResults: TestResults): string {
-  return `### Summary
+export const formatTime = (time: number): string => timeFormatter.format(time)
+export const formatString = (str: string): string =>
+  str.trim().replace(/\n/g, '<br />')
+export const formatSuccess = (success: boolean): string =>
+  success ? 'Pass ✅' : 'Fail ❌'
+export const formatFailure = (failure: string | undefined): string =>
+  failure ? failure.trim().replace(/\n/g, '<br />') : 'N/A'
 
-| Success | Time (seconds) | Threads | Test Count |
-| :---: | :---: | --- | --- |
-${makeSummaryRow(testResults)}
-
-`
+export function makeSummaryTable({
+  time,
+  success,
+  threads,
+  testCount
+}: TestResults): void {
+  core.summary.addHeading('Summary', 3).addTable([
+    [
+      {data: 'Success', header: true},
+      {data: 'Time (seconds)', header: true},
+      {data: 'Threads', header: true},
+      {data: 'Test Count', header: true}
+    ],
+    [
+      formatSuccess(success),
+      formatTime(time),
+      threads.toString(),
+      testCount.toString()
+    ]
+  ])
 }
 
-export function makeSummaryRow(testResults: TestResults): string {
-  return `| ${testResults.success ? '✅' : '❌'} | ${formatter.format(
-    testResults.time
-  )} | ${testResults.threads} | ${testResults.testCount} |`
-}
-
-export function makeResultsTable(testResults: TestResults): string {
-  return `### Results
-
-| Name | Success | Time (seconds) | Summary | Description | Failure Reason |
-| --- | :---: | :---: | --- | --- | --- |
-${testResults.results.map(makeResultsRow).join('\n')}
-
-`
-}
-
-export function makeResultsRow(testResult: TestResult): string {
-  return `| ${testResult.name} | ${
-    testResult.success ? '✅' : '❌'
-  } | ${formatter.format(testResult.time)} | ${testResult.summary
-    .trim()
-    .replace(/\n/g, '<br />')} | ${testResult.description
-    .trim()
-    .replace(/\n/g, '<br />')} | ${
-    testResult.failure
-      ? testResult.failure.trim().replace(/\n/g, '<br />')
-      : 'N/A'
-  } |`
-}
-
-export function makeMarkdown(testResults: TestResults): string {
-  return makeSummaryTable(testResults) + makeResultsTable(testResults)
+export function makeResultsTable(results: TestResult[]): void {
+  core.summary.addHeading('Results', 3).addTable([
+    [
+      {data: 'Name', header: true},
+      {data: 'Success', header: true},
+      {data: 'Time (seconds)', header: true},
+      {data: 'Summary', header: true},
+      {data: 'Description', header: true},
+      {data: 'Failure Reason', header: true}
+    ],
+    ...results.map(
+      ({
+        name,
+        success,
+        failure,
+        description,
+        summary,
+        time
+      }: TestResult): string[] => [
+        name,
+        formatSuccess(success),
+        formatTime(time),
+        formatString(summary),
+        formatString(description),
+        formatFailure(failure)
+      ]
+    )
+  ])
 }
 
 export function main(
@@ -75,16 +91,20 @@ export function main(
   if (tastyJsonOutputFilepath === '') {
     throw new Error('tasty-json-output-filepath is required')
   }
-  if (markdownOutputFilepath === '') {
-    throw new Error('markdown-output-filepath is required')
-  }
   if (!existsSync(tastyJsonOutputFilepath)) {
     throw new Error('tasty-json-output-filepath does not exist')
   }
+  if (markdownOutputFilepath === '') {
+    throw new Error('markdown-output-filepath is required')
+  }
+
+  // TODO: Should validate that the data provided to us is formatted correctly
   const testResults: TestResults = JSON.parse(
     readFileSync(tastyJsonOutputFilepath).toString()
   )
-  return makeMarkdown(testResults)
+  makeSummaryTable(testResults)
+  makeResultsTable(testResults.results)
+  return core.summary.stringify()
 }
 
 async function run(): Promise<void> {

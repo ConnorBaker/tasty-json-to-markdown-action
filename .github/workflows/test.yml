@@ -15,13 +15,16 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: npm install
-      - run: npm run all
+      - uses: pnpm/action-setup@v2.2.1
+      - name: Install dependencies
+        run: pnpm install
+      - name: Run build/lint/format/tests
+        run: pnpm all
   test: # make sure the action works on a clean machine without building
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: ./
         with:
-          tasty-json-output-filepath: __tests__/rest-rewrite-test-tasty-run.json
-          markdown-output-filepath: __tests__/rest-rewrite-test-tasty-run-actual.md
+          tasty-json-output-filepath: tests/rest-rewrite-test-tasty-run.json
+          markdown-output-filepath: tests/rest-rewrite-test-tasty-run-actual.md
