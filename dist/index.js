@@ -1896,7 +1896,7 @@ const formatTime = (time) => exports.timeFormatter.format(time);
 exports.formatTime = formatTime;
 const formatString = (str) => str.trim().replace(/\n/g, '<br />');
 exports.formatString = formatString;
-const formatSuccess = (success) => success ? 'Pass ✅' : 'Fail ❌';
+const formatSuccess = (success) => success ? '✅ Pass' : '❌ Fail';
 exports.formatSuccess = formatSuccess;
 const formatFailure = (failure) => failure ? failure.trim().replace(/\n/g, '<br />') : 'N/A';
 exports.formatFailure = formatFailure;

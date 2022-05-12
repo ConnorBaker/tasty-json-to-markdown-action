@@ -28,7 +28,7 @@ export const formatTime = (time: number): string => timeFormatter.format(time)
 export const formatString = (str: string): string =>
   str.trim().replace(/\n/g, '<br />')
 export const formatSuccess = (success: boolean): string =>
-  success ? 'Pass ✅' : 'Fail ❌'
+  success ? '✅ Pass' : '❌ Fail'
 export const formatFailure = (failure: string | undefined): string =>
   failure ? failure.trim().replace(/\n/g, '<br />') : 'N/A'
 
