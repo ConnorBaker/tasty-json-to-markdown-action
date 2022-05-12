@@ -63,6 +63,8 @@ test('test runs', () => {
     'tests',
     'rest-rewrite-test-tasty-run-actual.md'
   )
+  process.env['SUMMARY_ENV_VAR'] = 'GITHUB_STEP_SUMMARY'
+  process.env['GITHUB_STEP_SUMMARY'] = '/dev/null'
   const np = process.execPath
   const ip = path.join(__dirname, '..', 'dist', 'index.js')
   const options: cp.ExecFileSyncOptions = {

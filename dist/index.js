@@ -1952,7 +1952,9 @@ function main(tastyJsonOutputFilepath, markdownOutputFilepath) {
     const testResults = JSON.parse((0, fs_1.readFileSync)(tastyJsonOutputFilepath).toString());
     makeSummaryTable(testResults);
     makeResultsTable(testResults.results);
-    return core.summary.stringify();
+    const markdownOutput = core.summary.stringify();
+    core.summary.write();
+    return markdownOutput;
 }
 exports.main = main;
 async function run() {

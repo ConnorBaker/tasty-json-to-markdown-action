@@ -104,7 +104,9 @@ export function main(
   )
   makeSummaryTable(testResults)
   makeResultsTable(testResults.results)
-  return core.summary.stringify()
+  const markdownOutput: string = core.summary.stringify()
+  core.summary.write()
+  return markdownOutput
 }
 
 async function run(): Promise<void> {
