@@ -1,0 +1,10 @@
+{
+  "importMap": "./import_map.json",
+  "tasks": {
+    "format": "deno fmt",
+    "lint": "deno lint",
+    "bundle": "deno bundle ./src/mod.ts ./dist/mod.mjs",
+    "test": "deno --unstable test --allow-env --allow-read=./tests --allow-run",
+    "all": "deno task format && deno task lint && deno task bundle && deno task test"
+  }
+}

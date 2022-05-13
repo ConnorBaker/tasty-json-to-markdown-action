@@ -5,12 +5,21 @@ branding:
   icon: book-open
   color: blue
 inputs:
-  tasty-json-output-filepath:
+  tasty_json_filepath:
     required: true
-    description: 'Path to the output file from tasty-json'
-  markdown-output-filepath:
-    required: true
-    description: 'Output path for the generated markdown table'
+    description: 'Path to the output file from tasty-json.'
+  markdown_filepath:
+    required: false
+    description: 'Output path for the generated markdown table. If not provided, only put in GitHub Actions job summary.'
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: "composite"
+  steps:
+    - uses: denoland/setup-deno@v1.1.0
+      with:
+        deno-version: "1.21.3"
+    - run: deno run -A --unstable ${{ github.action_path }}/dist/mod.mjs
+      shell: bash
+      env:
+        # Manually set INPUT_* variables until https://github.com/actions/runner/issues/665 is fixed.
+        INPUT_TASTY_JSON_FILEPATH: ${{ inputs.tasty_json_filepath }}
+        INPUT_MARKDOWN_FILEPATH: ${{ inputs.markdown_filepath }}

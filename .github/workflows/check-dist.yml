@@ -22,15 +22,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Set Node.js version
-        uses: actions/setup-node@v3
+      - uses: denoland/setup-deno@v1.1.0
         with:
-          node-version: 18
-      - uses: pnpm/action-setup@v2.2.1
-      - name: Install dependencies
-        run: pnpm install
+          deno-version: "1.21.3"
       - name: Rebuild the dist/ directory
-        run: pnpm package
+        run: deno task bundle
       - name: Compare the expected and actual dist/ directories
         run: |
           if [ "$(git diff --ignore-space-at-eol dist/ | wc -l)" -gt "0" ]; then

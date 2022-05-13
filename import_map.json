@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "std/path": "https://deno.land/std@0.139.0/path/mod.ts",
+    "std/testing/asserts": "https://deno.land/std@0.139.0/testing/asserts.ts",
+    "@actions/core": "https://esm.sh/@actions/core@1.8.1?target=deno&deps=std@0.139.0"
+  }
+}

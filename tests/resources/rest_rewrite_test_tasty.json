@@ -1,0 +1,856 @@
+{
+  "results": [
+    {
+      "name": "Tests.SMT Tests.ParseModel",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 9.999494068324566e-7
+    },
+    {
+      "name": "Tests.KBO Tests.Commutativity",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.8199998885393143e-4
+    },
+    {
+      "name": "Tests.KBO Tests.Associativity",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 3.7299998803064227e-4
+    },
+    {
+      "name": "Tests.KBO Tests.Distributivity",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.5700003132224083e-4
+    },
+    {
+      "name": "Tests.KBO Tests.Idempotence",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.3100000796839595e-4
+    },
+    {
+      "name": "Tests.KBO Tests.Transitivity",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 2.0999996922910213e-4
+    },
+    {
+      "name": "Tests.QuickCheck Tests.PROP_PERMITS",
+      "success": true,
+      "failure": null,
+      "description": "+++ OK, passed 100 tests.\n",
+      "summary": "OK",
+      "time": 2.049999951850623e-3
+    },
+    {
+      "name": "Tests.QuickCheck Tests.Transitivity of PO",
+      "success": true,
+      "failure": null,
+      "description": "+++ OK, passed 100 tests; 12973 discarded.\n",
+      "summary": "OK",
+      "time": 3.7933000014163554e-2
+    },
+    {
+      "name": "Tests.QuickCheck Tests.Transitivity of WQO",
+      "success": true,
+      "failure": null,
+      "description": "+++ OK, passed 100 tests; 841 discarded.\n",
+      "summary": "OK",
+      "time": 4.811999970115721e-3
+    },
+    {
+      "name": "Tests.QuickCheck Tests.Transitivity of RPO",
+      "success": true,
+      "failure": null,
+      "description": "+++ OK, passed 100 tests; 1457 discarded.\n",
+      "summary": "OK",
+      "time": 0.12173899996560067
+    },
+    {
+      "name": "Tests.QuickCheck Tests.RPO aligns with concrete",
+      "success": true,
+      "failure": null,
+      "description": "+++ OK, passed 5 tests; 3 discarded.\n",
+      "summary": "OK",
+      "time": 3.5050000296905637e-3
+    },
+    {
+      "name": "Tests.OpOrdering Tests.Parse",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 0.0
+    },
+    {
+      "name": "Tests.OpOrdering Tests.Minimal",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 8.900003740563989e-5
+    },
+    {
+      "name": "Tests.OC Tests.LazyOC Tests.Intersect",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 0.0
+    },
+    {
+      "name": "Tests.OC Tests.StrictOC Tests.Permits",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 2.600002335384488e-5
+    },
+    {
+      "name": "Tests.OC Tests.StrictOC Tests.Permits2",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 2.9999995604157448e-5
+    },
+    {
+      "name": "Tests.OC Tests.RPO Tests.RPO1",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 5.400000372901559e-5
+    },
+    {
+      "name": "Tests.OC Tests.RPO Tests.RPO2",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 5.519999540410936e-4
+    },
+    {
+      "name": "Tests.OC Tests.RPO Tests.RPO3",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 4.5532000018283725e-2
+    },
+    {
+      "name": "Tests.OC Tests.RPO Tests.RPO4",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 5.800003418698907e-5
+    },
+    {
+      "name": "Tests.OC Tests.RPO Tests.RPO5",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 5.150000040885061e-3
+    },
+    {
+      "name": "Tests.OC Tests.RPO Tests.RPO6",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.9109999993816018e-3
+    },
+    {
+      "name": "Tests.OC Tests.RPO Tests.RPOOrient",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 5.117999971844256e-3
+    },
+    {
+      "name": "Tests.OC Tests.RPO Tests.SynGTE",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 3.6999990697950125e-5
+    },
+    {
+      "name": "Tests.OC Tests.RPO Tests.SynGTE2",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 5.859999801032245e-4
+    },
+    {
+      "name": "Tests.OC Tests.Ordering Tests.Simple1",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 0.0
+    },
+    {
+      "name": "Tests.OC Tests.Ordering Tests.Simple2",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 5.900004180148244e-5
+    },
+    {
+      "name": "Tests.OC Tests.Ordering Tests.Simple3",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 6.000004941597581e-5
+    },
+    {
+      "name": "Tests.OC Tests.Ordering Tests.Subterm",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.4999997802078724e-5
+    },
+    {
+      "name": "Tests.OC Tests.Ordering Tests.Intersect",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 4.39999857917428e-5
+    },
+    {
+      "name": "Tests.MultisetOrder Tests.Constraints",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 6.400002166628838e-5
+    },
+    {
+      "name": "Tests.MultisetOrder Tests.Unsat",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 5.8999983593821526e-5
+    },
+    {
+      "name": "Tests.WQO Tests.NotStrongerThan",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 4.899996565654874e-5
+    },
+    {
+      "name": "Tests.WQO Tests.RejectInvalid",
+      "success": false,
+      "failure": "TestFailed",
+      "description": "test/tasty/WQOTests.hs:22:\nexpected: False\n but got: True",
+      "summary": "FAIL",
+      "time": 1.9000028260052204e-5
+    },
+    {
+      "name": "Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Contains",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.00000761449337e-6
+    },
+    {
+      "name": "Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Diverge",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.2499996228143573e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Diverge3",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.170000177808106e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Eval1",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 0.0
+    },
+    {
+      "name": "Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Eval2",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 3.365600004326552e-2
+    },
+    {
+      "name": "Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Subst1",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.00000761449337e-6
+    },
+    {
+      "name": "Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.ArithTerm",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 3.000000142492354e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.ArithTerm2",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 5.000000237487257e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith0",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.338200003374368e-2
+    },
+    {
+      "name": "Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith1",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 2.187000005505979e-3
+    },
+    {
+      "name": "Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith2",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.4999997802078724e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith3",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.509999856352806e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith4",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 3.58700001379475e-3
+    },
+    {
+      "name": "Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith4.1",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 3.30400001257658e-3
+    },
+    {
+      "name": "Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith5",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.3100000796839595e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith5.1",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.0449999826960266e-3
+    },
+    {
+      "name": "Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith5.2",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 5.99899998633191e-3
+    },
+    {
+      "name": "Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith6",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 3.3007999998517334e-2
+    },
+    {
+      "name": "Tests.Implementation Tests.KBO Implementation Tests.Arithmetic Tests.Arith7",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 3.913699998520315e-2
+    },
+    {
+      "name": "Tests.Implementation Tests.KBO Implementation Tests.Completion Tests.CompleteDiverges",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.7300003673881292e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.KBO Implementation Tests.Completion Tests.Complete1",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.990000018849969e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.KBO Implementation Tests.Completion Tests.EvalComplete2",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 8.299999171867967e-5
+    },
+    {
+      "name": "Tests.Implementation Tests.KBO Implementation Tests.Completion Tests.Complete2",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 5.760000203736126e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Contains",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.799996243789792e-5
+    },
+    {
+      "name": "Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Diverge",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 7.100001676008105e-5
+    },
+    {
+      "name": "Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Diverge3",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.610000035725534e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Eval1",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 5.70000265724957e-5
+    },
+    {
+      "name": "Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Eval2",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 3.364999999757856e-2
+    },
+    {
+      "name": "Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Subst1",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 7.700000423938036e-5
+    },
+    {
+      "name": "Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.ArithTerm",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 2.3500004317611456e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.ArithTerm2",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 4.1199999395757914e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith0",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.654199999757111e-2
+    },
+    {
+      "name": "Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith1",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 2.8180000372231007e-3
+    },
+    {
+      "name": "Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith2",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.2600002810359e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith3",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 7.700000423938036e-5
+    },
+    {
+      "name": "Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith4",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 4.430999979376793e-3
+    },
+    {
+      "name": "Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith4.1",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 3.6309999995864928e-3
+    },
+    {
+      "name": "Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith5",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 8.399999933317304e-5
+    },
+    {
+      "name": "Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith5.1",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 9.339999523945153e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith5.2",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 7.260999991558492e-3
+    },
+    {
+      "name": "Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith6",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 6.551699998090044e-2
+    },
+    {
+      "name": "Tests.Implementation Tests.RPO Implementation Tests.Arithmetic Tests.Arith7",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 4.473900003358722e-2
+    },
+    {
+      "name": "Tests.Implementation Tests.RPO Implementation Tests.Completion Tests.CompleteDiverges",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 2.779999631457031e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.RPO Implementation Tests.Completion Tests.Complete1",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 2.429999876767397e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.RPO Implementation Tests.Completion Tests.EvalComplete2",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 9.999494068324566e-7
+    },
+    {
+      "name": "Tests.Implementation Tests.RPO Implementation Tests.Completion Tests.Complete2",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 8.900000248104334e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Contains",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 3.200001083314419e-5
+    },
+    {
+      "name": "Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Diverge",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 3.100000321865082e-5
+    },
+    {
+      "name": "Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Diverge3",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.509999856352806e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Eval1",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.00000761449337e-6
+    },
+    {
+      "name": "Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Eval2",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 3.00002284348011e-6
+    },
+    {
+      "name": "Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Subst1",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 6.200000643730164e-5
+    },
+    {
+      "name": "Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.ArithTerm",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 3.629999700933695e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.ArithTerm2",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 4.0499999886378646e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Arith0",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 2.172299998346716e-2
+    },
+    {
+      "name": "Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Arith1",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 2.3748000035993755e-2
+    },
+    {
+      "name": "Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Arith2",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 3.75000003259629e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Arith3",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.3699999544769526e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Arith5",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.5999999595806003e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Arith5.1",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 5.290000117383897e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Arith5.2",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 2.4160000029951334e-3
+    },
+    {
+      "name": "Tests.Implementation Tests.LPO Implementation Tests.Arithmetic Tests.Arith7",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 0.1309940000064671
+    },
+    {
+      "name": "Tests.Implementation Tests.LPO Implementation Tests.Completion Tests.CompleteDiverges",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.580000389367342e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.LPO Implementation Tests.Completion Tests.Complete1",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 3.0800001695752144e-4
+    },
+    {
+      "name": "Tests.Implementation Tests.LPO Implementation Tests.Completion Tests.EvalComplete2",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 2.300000051036477e-5
+    },
+    {
+      "name": "Tests.Implementation Tests.LPO Implementation Tests.Completion Tests.Complete2",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.1999999987892807e-3
+    },
+    {
+      "name": "Tests.Golden Tests.fig4.TXT rewrites file generation",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 2.0599999697878957e-4
+    },
+    {
+      "name": "Tests.Golden Tests.fig4.DOT file generation",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 0.0
+    },
+    {
+      "name": "Tests.Golden Tests.fig8-noopt.TXT rewrites file generation",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 0.0
+    },
+    {
+      "name": "Tests.Golden Tests.fig8-noopt.DOT file generation",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 8.360000210814178e-4
+    },
+    {
+      "name": "Tests.Golden Tests.fig8-opt.TXT rewrites file generation",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.1500000255182385e-4
+    },
+    {
+      "name": "Tests.Golden Tests.fig8-opt.DOT file generation",
+      "success": true,
+      "failure": null,
+      "description": "",
+      "summary": "OK",
+      "time": 1.4700001338496804e-4
+    }
+  ],
+  "time": 0.7829780000029132,
+  "success": false,
+  "threads": 1,
+  "testCount": 106
+}

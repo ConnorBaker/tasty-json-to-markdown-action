@@ -11,20 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set Node.js version
-        uses: actions/setup-node@v3
+      - uses: denoland/setup-deno@v1.1.0
         with:
-          node-version: 18
-      - uses: pnpm/action-setup@v2.2.1
-      - name: Install dependencies
-        run: pnpm install
+          deno-version: "1.21.3"
       - name: Run build/lint/format/tests
-        run: pnpm all
+        run: deno task all
   test: # make sure the action works on a clean machine without building
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: ./
         with:
-          tasty-json-output-filepath: tests/rest-rewrite-test-tasty-run.json
-          markdown-output-filepath: tests/rest-rewrite-test-tasty-run-actual.md
+          tasty_json_filepath: ./tests/resources/rest_rewrite_test_tasty.json
+          markdown_filepath: ./tests/resources/expected.md
