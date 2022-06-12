@@ -1,0 +1,9 @@
+<svg width="1600" height="900" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 1600 900">
+<rect width="1600" height="900" x="0" y="0" id="0" fill="none" fill-opacity="1"></rect>
+<polyline points="800 765 800 795 1600 795" fill="none" stroke="#37A2DA" stroke-width="3"></polyline>
+<path d="M800 135A315 315 0 1 1 768.6 136.6A315 315 0 0 1 800 135M800 270A180 180 0 1 0 818 270.9A180 180 0 0 0 800 270Z" fill="#37A2DA" stroke="#fff" stroke-width="2" stroke-linejoin="round"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:16px;font-family:sans-serif;" xml:space="preserve" y="-12" transform="translate(1600 795)" fill="#333" stroke="rgb(255,255,255)" stroke-width="2" paint-order="stroke" stroke-miterlimit="2">Other (0%)</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:16px;font-family:sans-serif;" xml:space="preserve" y="12" transform="translate(1600 795)" fill="#333" stroke="rgb(255,255,255)" stroke-width="2" paint-order="stroke" stroke-miterlimit="2">0.000000 seconds</text>
+<path d="M-17.4 -5l34.8 0l0 22l-34.8 0Z" transform="translate(800 5)" fill="rgb(0,0,0)" fill-opacity="0" stroke="#ccc" stroke-width="0"></path>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:14px;font-family:sans-serif;" y="6" transform="translate(800 5)" fill="#999">Stuff</text>
+</svg>
