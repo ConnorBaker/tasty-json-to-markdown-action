@@ -22,7 +22,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: denoland/setup-deno@v1.1.0
+      - uses: denoland/setup-deno@v1.1.1
         with:
           deno-version: "1.21.3"
       - name: Rebuild the dist/ directory
